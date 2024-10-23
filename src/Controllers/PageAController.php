@@ -36,7 +36,7 @@ class PageAController {
 
         if ($validLink) {
             $newLinkId = $this->linkFactory->createLink($validLink['user_id']);
-            $this->linkRepository->deactivateLink($link);
+            $this->linkRepository->deleteLink($link);
             $newLink = 'http://localhost:8000/link/' . $newLinkId;
             header('Content-Type: application/json');
             echo json_encode(['link' => $newLink]);
@@ -49,7 +49,7 @@ class PageAController {
         $link = isset($_POST['linkId']) ? $_POST['linkId'] : null;
         $validLink = $this->linkRepository->findValidLink($link);
         if ($validLink) {
-            $this->linkRepository->deactivateLink($link);
+            $this->linkRepository->deleteLink($link);
             header('Content-Type: application/json');
             echo json_encode(['message' => 'deactivated']);
         } else {

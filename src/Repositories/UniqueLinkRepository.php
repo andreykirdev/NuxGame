@@ -22,8 +22,8 @@ class UniqueLinkRepository {
         return $stmt->fetch();
     }
 
-    public function deactivateLink($link) {
-        $stmt = $this->pdo->prepare("UPDATE unique_links SET active = 0 WHERE link = ?");
+    public function deleteLink($link) {
+        $stmt = $this->pdo->prepare("DELETE FROM unique_links WHERE link = ?");
         $stmt->execute([$link]);
     }
 }

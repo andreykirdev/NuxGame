@@ -41,6 +41,11 @@
             background-color: #0056b3;
         }
 
+        #container {
+            display: flex;
+            justify-content: center;
+        }
+
         #history {
             list-style-type: none;
             padding: 0;
@@ -53,6 +58,7 @@
             margin-bottom: 5px;
             border: 1px solid #ddd;
             border-radius: 4px;
+            margin: 0 10px;
         }
 
         #result {
@@ -88,8 +94,10 @@
 <form action="/history" method="POST">
     <button type="submit">Get History</button>
 </form>
-<ul id="history">
-</ul>
+<div id="container">
+    <ul id="history">
+    </ul>
+</div>
 
 </body>
 </html>
